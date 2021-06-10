@@ -1,0 +1,101 @@
+<menu></menu>
+<div class="container">
+
+    <div class="form-row align-products-center">
+        <div class="col-md-9">
+            <div class="input-group mb-4 mt-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Search Products</div>
+                </div>
+                <input class="form-control" placeholder="Please enter any product name to search ">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class=" mb-4 mt-2">
+                <select class="form-control">
+                    <option>Sort By Name (A to Z)</option>
+                    <option>Sort By Name (Z to A)</option>
+                    <option>Sort By Price (Low to High)</option>
+                    <option>Sort By Price (High to Low)</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-4 mb-3" *ngFor="let product of products">
+                    <div class="card">
+                        <div>
+                            <img style="height:120px; width:auto" class="rounded mx-auto d-block img-fluid mt-3"
+                                src="{{product.product_image}}" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title font-weight-bold">{{product.product_name}}</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="card-text"> <small> {{product.product_weight}} </small></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="text-right"> <small> Rs {{product.product_price}} </small> </p>
+                                </div>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-5">
+            <!-- cart  -->
+            <div class="card text-center">
+                <div class="card-header">
+                    Your Cart Items
+                    <button type="button" class="btn btn-sm btn-warning mx-2 float-right">Total items <span class="badge badge-light">1</span>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-danger mx-2 float-right">Empty Cart</button>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                            </tr>
+                            <tr>
+                                <td class="text-left">Soap</td>
+                                <td> 100 x</td>
+                                <td style="width: 35%;">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-info" type="button">+</button>
+                                        </div>
+                                        <input type="text" class="form-control text-center" value="1">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-danger" type="button">-</button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="#" class="btn btn-sm btn-primary">Checkout</a>
+                </div>
+                <div class="card-footer text-muted font-weight-bold">
+                    Total : Rs. 100
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

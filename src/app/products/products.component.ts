@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
+
+  searchField : any ;
+  
+  sortOption: string ='product_name|asc';
+  sortBy: string ='';
+
   products: any[] = [
     {
       p_id: '1',

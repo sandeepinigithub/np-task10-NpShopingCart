@@ -7,16 +7,16 @@
                 <div class="input-group-prepend">
                     <div class="input-group-text">Search Products</div>
                 </div>
-                <input class="form-control" placeholder="Please enter any product name to search ">
+                <input class="form-control" placeholder="Please enter any product name to search " [(ngModel)] = "searchField">
             </div>
         </div>
         <div class="col-md-3">
             <div class=" mb-4 mt-2">
-                <select class="form-control">
-                    <option>Sort By Name (A to Z)</option>
-                    <option>Sort By Name (Z to A)</option>
-                    <option>Sort By Price (Low to High)</option>
-                    <option>Sort By Price (High to Low)</option>
+                <select class="form-control" [(ngModel)] = "sortOption">
+                    <option value="product_name|asc">Sort By Name (A to Z)</option>
+                    <option value="product_name|desc">Sort By Name (Z to A)</option>
+                    <option value="product_price|lth">Sort By Price (Low to High)</option>
+                    <option value="product_price|htl">Sort By Price (High to Low)</option>
                 </select>
             </div>
         </div>
@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-md-7">
             <div class="row">
-                <div class="col-md-4 mb-3" *ngFor="let product of products">
+                <div class="col-md-4 mb-3" *ngFor="let product of (products | searchFilter : searchField | sortBy : sortOption)">
                     <div class="card">
                         <div>
                             <img style="height:120px; width:auto" class="rounded mx-auto d-block img-fluid mt-3"
